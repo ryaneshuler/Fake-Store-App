@@ -2,10 +2,12 @@ import React from "react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { Container, Spinner, Row, Col, Card, Button } from "react-bootstrap"
+import { useNavigate } from 'react-router-dom';
 
 function ProductListing() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -30,6 +32,11 @@ function ProductListing() {
     )
   }
 
+  const handleViewDetails = (productId) => {
+    // navigate to details route; ProductDetailsPage will fetch by ID
+    navigate(`/products/${productId}`);
+  }
+
   return (
     <div>
       <h1>Product Listing</h1>
@@ -44,7 +51,7 @@ function ProductListing() {
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{product.title}</Card.Title>
                   <Card.Text className="mt-auto">${product.price}</Card.Text>
-                  <Button variant="primary">View Details</Button>
+                  <Button onClick={() => handleViewDetails(product.id)} variant="primary">View Details</Button>
                 </Card.Body>
               </Card>
             </Col>
