@@ -1,14 +1,13 @@
 import React from 'react';
 import { Navbar, Nav, Container } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
-
-
+import '../App.css';
 
 function NavBar() {
   return (
-      <Navbar bg="primary" variant="dark" expand="lg" className="w-100 mb-4">
+      <Navbar bg="primary" variant="dark" expand="lg" className="w-100 mb-4 nav-bar-custom">
         <Container fluid className="ps-3">
-          <Navbar.Brand href="#home">Fake Store</Navbar.Brand>
+          <Navbar.Brand as={NavLink} to="/">Fake Store</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
