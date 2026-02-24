@@ -33,7 +33,6 @@ function ProductListing() {
   }
 
   const handleViewDetails = (productId) => {
-    // navigate to details route; ProductDetailsPage will fetch by ID
     navigate(`/products/${productId}`);
   }
 
@@ -50,7 +49,7 @@ function ProductListing() {
                 </div>
                 <Card.Body className="d-flex flex-column">
                   <Card.Title>{product.title}</Card.Title>
-                  <Card.Text className="mt-auto">${product.price}</Card.Text>
+                  <Card.Text className="mt-auto">${Number(product.price).toFixed(2)}</Card.Text>
                   <Button onClick={() => handleViewDetails(product.id)} variant="primary">View Details</Button>
                 </Card.Body>
               </Card>
